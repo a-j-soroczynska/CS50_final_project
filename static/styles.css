@@ -1,0 +1,179 @@
+/* index.html background */
+@media screen and (min-width: 770px) {
+  .main-page {
+      background-image: url("/static/pizza-3731584_1920-40.jpg");
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-attachment: fixed;
+      background-size: cover;
+  }
+  header {
+  position: relative;
+  height: 45vh;
+  width: 100%;
+  }
+  
+  .main-container {
+  width: 40vw;
+  }
+}
+
+/* rest of the pages background */
+.subpage {
+    background-color: #0C1C2F;
+}
+
+/* mobile */
+@media screen and (max-width: 426px) {
+  .nav-top li a {
+    text-align: center;
+    float: none;
+  }
+  .main-page {
+    background-color: #0C1C2F;
+  }
+  header {
+  position: relative;
+  height: 80vh;
+  width: 100%;
+  }
+  
+  .main-container {
+  width: 70vw;
+  }
+}
+
+/* tablet */
+@media screen and (min-width: 427px) and (max-width: 769px) {
+  .nav-top li a {
+    text-align: center;
+    float: none;
+  }
+  .main-page {
+    background-color: #0C1C2F;
+  }
+  header {
+  position: relative;
+  height: 60vh;
+  width: 100%;
+  }
+  
+  .main-container {
+  width: 70vw;
+  }
+}
+
+
+main {
+  margin-bottom:40px;
+  margin-top:30px;
+}
+
+footer {
+  position: relative;
+  height: 10px;
+  width: 100%;
+}
+
+/* Logo */
+.logo {
+    display: block;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    overflow: hidden;
+}
+
+/* Navigation attribute */
+.navigation {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    border: 1px solid #C4B170;
+    width: 40vw;
+    max-width: 580px;
+    padding: 6px 6px;
+    overflow: hidden;
+    top: 170px;
+}
+
+/* list in navigation menu */
+.nav-top {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  overflow: hidden;
+  border: 2px solid #C4B170;
+  
+}
+
+/* Elements in list in navigation menu */
+.nav-top li {
+  float: left;
+}
+
+.nav-top li a {
+  display: block;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  color: white;
+}
+
+.nav-top li a:hover {
+  background-color: #555;
+  color: white;
+}
+
+/* content of the page */
+#menu-container {
+  color: white;
+  text-align: center;
+  width: 40%;
+  height: 100%;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+#menu-container p {
+  
+  text-transform: uppercase;
+}
+
+#menu-container hr {
+  border-top: 1px solid #C4B170;
+  
+}
+
+.main-container {
+  color: white;
+  text-align: left;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  float: none;
+  padding: 10px;
+  }
+
+.table {
+  color: white;
+  table-layout: fixed;
+  word-wrap: break-word;
+}
+
+#col1 {
+  width: 1rem;
+}
+
+/* Source: https://www.google.pl/maps */
+/* Set the size of the div element that contains the map */
+#map {
+  height: 200px;
+  width: 100%;
+}
+

@@ -1,0 +1,92 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Summary
+{% endblock %}
+
+{% block main %}
+    
+
+  <div class="main-container">
+      
+      <!-- Alerts -->  
+    {% if message %}
+    <div class="alert alert-success" role="alert">
+        The order was passed to the restaurant succsesfully. <a href="/delivery">Place another order.</a>
+    </div>
+    {% endif %}
+     
+    
+    {% if not message %}
+    <!-- Food summary -->
+    <h2>Food</h2>
+    <div class="table-responsive">
+      <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col" ></th>
+                    <th scope="col" style="width: 20%;">Price</th>
+                    <th scope="col" style="width: 15%;">Number</th>
+                    <th scope="col" style="width: 20%;">Total price</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                    {% for food in food %}
+                        <tr>
+                            <td>{{ food.name }}</td>
+                            <td>{{ food.price }} PLN</td>
+                            <td>{{ food.number }}</td>
+                            <td>{{ food.totalPrice }} PLN</td>
+                        </tr>
+                    {% endfor %}
+
+                <tr>
+                    <td>Delivery</td>
+                    <td></td>
+                    <td></td>
+                    <td>{{ priceDelivery }} PLN</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td style="font-size: larger;"><strong>{{ priceSumTotal }} PLN</strong></td>
+                </tr>
+            </tbody>
+        </table>
+        <br><br>
+       
+       <!-- Adress summary --> 
+        <h2>Delivery address</h2>
+        <div class="table-responsive">
+            <table class="table">
+                <tr>
+                    <td>Name:</td>
+                    <td> {{ adress.name }} </td>
+                </tr>
+                <tr>
+                    <td>Phone number:</td>
+                    <td> {{ adress.phone }} </td>
+                </tr>
+                <tr>
+                    <td>Adress:</td>
+                    <td> {{ adress.street }} {{ adress.number }}</td>
+                </tr>
+                <tr>
+                    <td>City:</td>
+                    <td> {{ adress.zipCode }} {{ adress.city }}</td>
+                </tr>
+            </table>
+        </div>
+        
+        <form action="/summary" method="post">
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <input class="btn btn-primary" type="submit" value="Confirm and order">
+            </div>
+        </form>
+    </div>
+    {% endif %}
+  </div>
+
+{% endblock %}

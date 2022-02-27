@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Menu
+{% endblock %}
+
+{% block main %}
+    <!-- https://tutorials.sitecast.com/tutorials/how-to-code-a-restaurant-menu-and-website/ -->
+    <div id="menu-container" >
+      <div class="row d-flex justify-content-center">
+        <div class="pb-5 text-center">
+          <h4 class="text-center quicksand-font text-uppercase">Appetizer</h4>
+          <hr>
+          {% for appetizer in appetizer %}
+          <p>{{ appetizer.name }}</p>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="row d-flex justify-content-center">
+        <div class="pb-5 text-center">
+          <h4 class="text-center quicksand-font text-uppercase">Pizza</h4>
+          <hr>
+          {% for pizza in pizza %}
+          <p>{{ pizza.name }}</p>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="row d-flex justify-content-center">
+        <div class="pb-5 text-center">
+          <h4 class="text-center quicksand-font text-uppercase">Pasta</h4>
+          <hr>
+          {% for pasta in pasta %}
+          <p>{{ pasta.name }}</p>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="row d-flex justify-content-center">
+        <div class="pb-5 text-center">
+          <h4 class="text-center quicksand-font text-uppercase">Dessert</h4>
+          <hr>
+          {% for dessert in dessert %}
+          <p>{{ dessert.name }}</p>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+{% endblock %}

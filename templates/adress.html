@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block title %}
+   Address
+{% endblock %}
+
+{% block main %}
+
+
+  <div class="main-container">
+      
+    <!-- Alert -->
+    {% if message %}
+    <div class="alert alert-danger" role="alert">
+        {{ message }}
+    </div>
+    {% endif %}
+    
+    <!-- Adress form -->
+    <div>
+        <form action="/adress" method="post" >
+            <fieldset>
+            <legend>Delivery address</legend>
+                <label for="name">Name:</label>
+                <input autocomplete="off" autofocus class="form-control" name="name" placeholder="John Doe" type="text" required>
+                <label for="phone">Phone number:</label>
+                <input autocomplete="off" class="form-control" name="phone" placeholder="123-456-789" type="text" required pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}">
+                <div class="row">  
+                    <div class="col-9">
+                        <label for="street">Street:</label>
+                        <input autocomplete="off" class="form-control" name="street" placeholder="Piotrkowska" type="text" required>
+                    </div>
+                    <div class="col-3">
+                        <label for="street">Number:</label>
+                        <input autocomplete="off" class="form-control" name="number" placeholder="150" type="number" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-3">
+                        <label for="zip">ZIP:</label>
+                        <input autocomplete="off" class="form-control" name="zip" placeholder="10000" type="text" required minlength="5" maxlength="5">
+                    </div>
+                    <div class="col-9">
+                        <label for="city">City:</label>
+                        <input autocomplete="off" class="form-control" name="city" placeholder="Lodz" type="text" required><br>
+                    </div>
+                </div>
+                <input class="btn btn-primary" type="submit" value="Go to summary">
+              </fieldset>
+        </form>
+      </div>
+  </div>
+
+{% endblock %}

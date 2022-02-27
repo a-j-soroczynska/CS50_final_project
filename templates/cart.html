@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Cart
+{% endblock %}
+
+{% block main %}
+    
+
+  <div class="main-container">
+
+    <div class="table-responsive">
+      <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col" ></th>
+                    <th scope="col" style="width: 20%;">Price</th>
+                    <th scope="col" style="width: 15%;">Number</th>
+                    <th scope="col" style="width: 15%;"></th>
+                    <th scope="col" style="width: 20%;">Total price</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                    {% for food in food %}
+                        <tr>
+                            <td>{{ food.name }}</td>
+                            <td>{{ food.price }} PLN</td>
+                            <td>{{ food.number }}</td>
+                            <form action="/cart" method="post">
+                            <td hidden><input type="input" name="id" value = {{ food.id }}></td>
+                            <td>
+                                
+                                
+                                <input type="submit" name="plus" value="+">
+                                <input type="submit" name="minus" value="-">
+                            </td>
+                            </form>
+                            
+                            <td>{{ food.totalPrice }} PLN</td>
+                        </tr>
+                    {% endfor %}
+
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td style="font-size: larger;"><strong>{{ priceSum }} PLN</strong></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <a href="/adress"><button class="btn btn-primary" type="button">Order</button></a>
+        </div>
+    </div>
+  </div>
+
+{% endblock %}

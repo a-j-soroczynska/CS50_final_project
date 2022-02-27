@@ -1,0 +1,90 @@
+{% extends "layout.html" %}
+
+{% block title %}
+   Contact
+{% endblock %}
+
+{% block script %}
+    <!-- Source: https://www.google.pl/maps -->
+   <script> 
+    // Initialize and add the map
+    function initMap() {
+    // The location of Uluru
+    const uluru = { lat: 51.76021101245669, lng: 19.458724980046757 };
+    // The map, centered at Uluru
+    const map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 15,
+    center: uluru,
+  });
+  // The marker, positioned at Uluru
+    const marker = new google.maps.Marker({
+    position: uluru,
+    map: map,
+  });
+}
+   </script>
+
+{% endblock %}
+
+{% block main %}
+
+
+  <div class="main-container">
+      
+    <!-- Alert -->
+    {% if messageOK %}
+    <div class="alert alert-success" role="alert">
+        {{ messageOK }}
+    </div>
+    {% endif %}
+    
+    {% if messageWrong %}
+    <div class="alert alert-warning" role="alert">
+        {{ messageWrong }}
+    </div>
+    {% endif %}
+    
+    <!-- Info about restaurant -->
+    <div class="row">  
+        <div class="col-3">
+        </div>
+        <div class="col-6" style="text-align: center;">
+            <p><strong>Phone:</strong> 123-456-789</p>
+            <p><strong>Email:</strong> laportaaperta@mail.com</p>
+            <p><strong>Open:</strong> daily 12:00 - 22:00</p>
+            <p><strong>Adress:</strong> Piotrkowska 150, Lodz</p>
+            <!-- Source: https://www.google.pl/maps -->
+            <!--The div element for the map -->
+            <div id="map"></div>
+            <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+            <script
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4EaGKO2F3I_twKC2pgXhIum9iSm225Fg&callback=initMap&libraries=&v=weekly"
+            async>
+            </script>
+        </div>
+        <div class="col-3">
+        </div>
+    </div>
+    <br><br>
+    
+    <!-- Contact form -->
+    <div>
+        <form action="/contact" method="post" >
+            <fieldset>
+            <legend>Contact us</legend>
+                <label for="name">Name:</label>
+                <input autocomplete="off" class="form-control" name="name" placeholder="John Doe" type="text" required>
+                <label for="mail">E-mail adress:</label>
+                <input autocomplete="off" class="form-control" name="mail" placeholder="example@mail.com" type="text" required>
+                <br>
+                <div>
+                  <textarea class="form-control" autocomplete="off" name="contactMessage" rows="5" cols="20" placeholder="Message" required></textarea>
+                </div>
+                <br>
+                <input class="btn btn-primary" type="submit" value="Send">
+              </fieldset>
+        </form>
+      </div>
+  </div>
+
+{% endblock %}

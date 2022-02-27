@@ -1,0 +1,78 @@
+{% extends "layout.html" %}
+
+{% block title %}
+   Reservations
+{% endblock %}
+
+{% block main %}
+
+
+  <div class="main-container">
+      
+    <!-- Alerts -->
+    {% if messageOK %}
+    <div class="alert alert-success" role="alert">
+        {{ messageOK }}
+    </div>
+    {% endif %}
+    
+    {% if messageWrong %}
+    <div class="alert alert-warning" role="alert">
+        {{ messageWrong }}
+    </div>
+    {% endif %}
+    
+    <!-- Reservation form -->
+    <div>
+        <form action="/reservations" method="post" >
+            <fieldset>
+            <legend>Book a table</legend>
+                <label for="name">Name:</label>
+                <input autocomplete="off" autofocus class="form-control" name="name" placeholder="John Doe" type="text" required>
+                <label for="phone">Phone number:</label>
+                <input autocomplete="off" class="form-control" name="phone" placeholder="123-456-789" type="text" required pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}">
+                <div class="row">  
+                    <div class="col-4">
+                        <label for="number">Table for:</label>
+                        <select class="form-control" name="number">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+                    </div>
+                    <div class="col-4">
+                        <label for="date">Date:</label>
+                        <input autocomplete="off" class="form-control" name="date" type="date" required>
+                    </div>
+                    <div class="col-4">
+                        <label for="date">Time:</label>
+                        <select class="form-control" name="time">
+                            <option value="12:00">12:00</option>
+                            <option value="13:00">13:00</option>
+                            <option value="14:00">14:00</option>
+                            <option value="15:00">15:00</option>
+                            <option value="16:00">16:00</option>
+                            <option value="17:00">17:00</option>
+                            <option value="18:00">18:00</option>
+                            <option value="19:00">19:00</option>
+                            <option value="20:00">20:00</option>
+                            <option value="21:00">21:00</option>
+                        </select>
+                    </div>
+                </div>
+                <br>
+                <input class="btn btn-primary" type="submit" value="Make reservation">
+              </fieldset>
+        </form>
+      </div>
+    <br>
+    
+    <!-- Group reservations -->
+    <div>
+        <p>For group reservations please send us a message via <a href="/contact">contact form</a>.</p>
+    </div>
+      
+  </div>
+
+{% endblock %}

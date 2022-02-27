@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Opinions
+{% endblock %}
+
+{% block main %}
+    
+
+  <div class="main-container">
+    
+    <!-- Alerts -->  
+    {% if messageOk %}
+    <div class="alert alert-success" role="alert">
+        {{ messageOk }}
+    </div>
+    {% endif %}
+    
+    {% if messageWrong %}
+    <div class="alert alert-warning" role="alert">
+        {{ messageWrong }}
+    </div>
+    {% endif %}
+    
+    <!-- Form --> 
+    <div class="form-group">
+      <form action="/opinions" method="post">
+         <fieldset>
+            <legend>Tell us your opinion</legend>
+              <div>
+                  <label for="name">Name:</label>
+                  <input autocomplete="off" autofocus class="form-control" name="name" placeholder="John Doe" type="text">
+              </div>
+              <br>
+              <div>
+                  <textarea class="form-control" autocomplete="off" name="opinion" rows="5" cols="20" placeholder="Opinion"></textarea>
+              </div>
+              <br>
+              <button class="btn btn-primary" type="submit">Submit</button>
+        </fieldset>   
+      </form>
+    </div>
+    <br><br>
+    
+    <!-- Opinions --> 
+    <div class="table-responsive">
+      <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col" style="width: 25%;">Name</th>
+                    <th scope="col">Opinion</th>
+                    <th scope="col" style="width: 25%;">Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for opinion in opinions %}
+                    <tr>
+                        <td>{{ opinion.name }}</td>
+                        <td>{{ opinion.opinion }}</td>
+                        <td>{{ opinion.timestamp }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+  </div>
+
+{% endblock %}
